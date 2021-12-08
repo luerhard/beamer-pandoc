@@ -1,5 +1,2 @@
 #!/bin/sh
-make pdf
-make docx
-make diff depth=1
-make clean
+make slide-level=2
