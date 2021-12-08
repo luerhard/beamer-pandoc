@@ -1,0 +1,95 @@
+\documentclass[compress,11pt]{beamer}
+
+% language and encodings
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{csquotes}
+\usepackage{graphicx}
+
+% TikZ
+\usepackage{tikz}
+\usepackage{flowchart}
+\usetikzlibrary{arrows}
+
+\usetikzlibrary{decorations.text}
+\tikzset{
+	textalongpath/.style 2 args={
+		decoration={
+			text align={left indent=#1},
+			text along path,
+			text={#2}
+		},
+		decorate
+	}
+}
+
+% Beamer theme - options:
+% - navigationDotsLocation: specify location of the dots in the headline
+%   - near: display the dots near the section names (default)
+%   - below: display the dots below the section names
+% - titlePageSpacing: vertical spacing between items on title page (default: 1.5em)
+% - titlePageNumberOfAuthors: influence size and location of authors on title page
+%   - few (default): use larger font size, display authors on the left
+%   - many: use smaller font size, display authors on the right
+% - thanksPageBigGraphicsScale: scale for the big graphics on the thanks page (default: 1)
+% - titlePageUniversityLogo: location of university logo file on the title page
+%   (default: img/logos/logo_us_white)
+% - titlePageInstituteLogo: location of institute logo file on the title page
+%   (default: img/logos/logo_ipvs)
+% - titlePageDepartmentLogo: location of department logo file on the title page
+%   (default: img/logos/logo_sgs)
+% - titlePageBigLogo: location of big logo file on the title page
+%   (default: img/logos/logo_simtech)
+% - thanksPageBigGraphics: location of the big graphics on the thanks page
+%   (default: img/tikz/gfx_title)
+% - thanksPageInstituteLogo: location of institute logo file on the thanks page
+%   (default: img/logos/logo_ipvs)
+% - thanksPageDepartmentLogo: location of department logo file on the thanks page
+%   (default: img/logos/logo_sgs)
+% - thanksPageBigLogo: location of big logo file on the thanks page
+%   (default: img/logos/logo_simtech)
+\usepackage[
+    %thanksPageBigGraphics=img/thanks,
+    %navigationDotsLocation=below,
+    %titlePageSpacing=0.6em,
+    %titlePageNumberOfAuthors=many,
+]{rsc/templates/beamerthemeStuttgart}
+
+% metadata
+$if(title)$
+\title{$title$}
+$endif$
+$if(subtitle)$
+\subtitle{$subtitle$}
+$endif$
+$if(author)$
+\author{$author$}
+$endif$
+$if(institute)$
+\institute{$institute$}
+$endif$
+$if(date)$
+\date{$date$}
+$endif$
+
+\begin{document}
+\only<beamer>{\titleframe}
+
+
+$if(toc)$
+\begin{frame}{
+	$if(toctitle)$%
+	$toctitle$%
+	$else$%
+	Table of contents%
+	$endif$%
+	}
+	\tableofcontents
+\end{frame}
+$endif$
+
+$body$
+
+\end{document}
