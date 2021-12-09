@@ -68,7 +68,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ::: {.column width=70%}
 
-![This is my image caption](rsc/img/big_data.jpg){ width=90% }
+![$nbsp;](rsc/img/big_data.jpg){ width=90% }
 
 :::
 
