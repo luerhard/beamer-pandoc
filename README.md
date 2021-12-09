@@ -1,17 +1,19 @@
 # Simple usage
 
-1. Write your article in report/main.md and your appendix in reports/appendix.md
+1. Write your presentation in `main.md`
 2. Push to main
 3. View your results in the Actions Tab
 
 # run with docker
 
 ```bash
-# to run normally
+# to run normally (from the root directory of this repo)
 docker run --rm -v $(pwd):/wrk lerhard/pandoc
 
-# create custom diff (where 5 is an arbitrary number of commits)
-docker run --rm -v $(pwd):/wrk --entrypoint="" lerhard/pandoc make diff depth=5
+# to use a custom slide-level
+# either change the variable in docker/entrypoint.sh
+# or customize the command as
+docker run --rm -v $(pwd):/wrk --entrypoint="" lerhard/pandoc make slide-level=N
 ```
 
 # local dependencies
@@ -22,25 +24,13 @@ If you want to install the software directly on your system, the following depen
 - make
 - TexLive 2020
 - pandoc 2.16 (lower versions may work)
-- python3
-
-pypi (pip) dependencies:
-- panflute
-- pandoc-fignos
-- pandoc-secnos
 ```
 
 # possible make commands
 ```bash
-# create pdf, docx and diff with depth=1
+# create a pdf
 make 
 
-# create a pdf
-make pdf
-
-# create a word document
-make docx
-
-# create a diff pdf where depth is the number of commits to compare
-make diff depth=5
+# use a custom slide-level
+make slide-level=N
 ```
