@@ -87,12 +87,12 @@
 \usecolortheme{whale}
 \usecolortheme{orchid}
 
-\usefonttheme{structurebold}
+%\usefonttheme{structurebold}
 
 % ------------------------------------------------------------------------------
 % university colors
 \definecolor{anthrazit}{RGB}{62,68,76}
-\definecolor{mittelblau}{RGB}{0,81,158}
+\definecolor{mittelblau}{RGB}{0,65,145}
 \definecolor{hellblau}{RGB}{0,190,255}
 
 % ------------------------------------------------------------------------------
@@ -107,14 +107,25 @@
 
 % ------------------------------------------------------------------------------
 % basic color for all structuring elements (e.g., bullet points)
+\setbeamercolor{normal text}{fg=anthrazit}
 \setbeamercolor{structure}{fg=mittelblau}
+
+\setbeamercolor{item projected}{bg=hellblau, fg=mittelblau}
+\setbeamercolor{subitem projected}{bg=hellblau, fg=mittelblau}
+\setbeamercolor{subsubitem projected}{bg=hellblau, fg=mittelblau}
+\setbeamercolor{itemize item}{fg=hellblau}
+\setbeamercolor{itemize subitem}{fg=hellblau}
+\setbeamercolor{itemize subsubitem}{fg=hellblau}
+
 % block title
 \setbeamercolor{block title}{bg=mittelblau}
+\setbeamerfont{block title}{series=\bfseries, size=\small}
 % navigation bar
 \setbeamercolor{section in head/foot}{bg=mittelblau}
-\setbeamerfont{section in head/foot}{size=\scriptsize}
+\setbeamerfont{section in head/foot}{series=\bfseries, size=\scriptsize}
 % color of \frametitle
 \setbeamercolor{frametitle}{fg=mittelblau,bg=white}
+\setbeamerfont{frametitle}{series=\bfseries}
 %\setbeamerfont{frametitle}{series=\bfseries}
 % title on title page
 \setbeamercolor{title}{fg=white}
@@ -133,9 +144,6 @@
 \renewcommand*{\beamer@andinst}{\\}
 
 % ------------------------------------------------------------------------------
-% Helvetica as standard font (no Univers/Arial in TeXLive)
-\RequirePackage[scaled]{helvet}
-\renewcommand*{\familydefault}{\sfdefault}
 
 % use sans-serif math font
 % (without this, commas will look differently in math mode compared to text mode)
@@ -296,7 +304,7 @@
 }
 
 % navigation dots: "radius" (= size) and "size" (= space between)
-\setbeamersize{mini frame radius=0.9mm,mini frame size=2mm}
+\setbeamersize{mini frame radius=0.8mm,mini frame size=2mm}
 
 % -------------------------------------------------------------------------
 % define footline to contain authors and slide number
@@ -440,7 +448,7 @@
     \usebeamerfont*{item projected}%
     \usebeamercolor[bg]{item projected}%
     \begin{pgfpicture}{-1ex}{-0.3ex}{1ex}{2ex}
-        \pgfpathcircle{\pgfpoint{0pt}{.7ex}}{1.2ex}
+        \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
         \pgfusepath{fill}
         \pgftext[base]{\color{fg}\insertenumlabel}
     \end{pgfpicture}%
@@ -453,7 +461,7 @@
     \usebeamerfont*{subitem projected}%
     \usebeamercolor[bg]{subitem projected}%
     \begin{pgfpicture}{-1ex}{-0.1ex}{1ex}{2ex}
-        \pgfpathcircle{\pgfpoint{0pt}{.7ex}}{1.2ex}
+        \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
         \pgfusepath{fill}
         \pgftext[base]{\color{fg}\insertsubenumlabel}
     \end{pgfpicture}%
@@ -464,7 +472,7 @@
     \usebeamerfont*{subsubitem projected}%
     \usebeamercolor[bg]{subsubitem projected}%
     \begin{pgfpicture}{-1ex}{-0.1ex}{1ex}{2ex}
-        \pgfpathcircle{\pgfpoint{0pt}{.7ex}}{1.2ex}
+        \pgfpathcircle{\pgfpoint{0pt}{.75ex}}{1.2ex}
         \pgfusepath{fill}
         \pgftext[base]{\color{fg}\insertsubsubenumlabel}
     \end{pgfpicture}%
@@ -525,5 +533,6 @@
 \setbeamercolor{bibliography entry title}{use=structure,fg=structure.fg}
 \setbeamercolor{bibliography entry location}{use=normal text,fg=normal text.fg}
 \setbeamercolor{bibliography entry note}{use=normal text,fg=normal text.fg}
+
 
 \mode<all>

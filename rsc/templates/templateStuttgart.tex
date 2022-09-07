@@ -1,12 +1,61 @@
-\documentclass[compress,11pt]{beamer}
+\documentclass[aspectratio=169, compress, 10pt]{beamer}
+
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{cantarell}
+\renewcommand{\familydefault}{\sfdefault}
+\defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase,Ligatures=TeX}
+
 
 % language and encodings
-\usepackage[english]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}
+
 \usepackage{url}
 \usepackage{csquotes}
 \usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{colortbl}
+
+\usepackage[most]{tcolorbox}
+
+\definecolor{lgray}{HTML}{e5e6e8}
+
+\newtcolorbox{myquote}{%
+	enhanced,
+	breakable,
+	colframe=lightgray,
+	colback=lgray,
+	width=\linewidth,
+	leftrule=5pt,
+	rightrule=0pt,
+	bottomrule=0pt,
+	toprule=0pt,
+	left=5pt,
+	right=0pt,
+	bottom=5pt,
+	top=6pt,
+	sharp corners,
+}
+
+\renewenvironment{quote}{\begin{myquote}}{\end{myquote}}
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=.,
+	citecolor=.,
+	urlcolor=[rgb]{0,0.317,0.619}
+}
+
+\setbeamersize
+{
+	text margin left=1cm,
+	text margin right=1cm
+}
 
 % TikZ
 \usepackage{tikz}
@@ -33,7 +82,7 @@
 }
 
 % satisfy pandoc's tightlist command
-\def\tightlist{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\def\tightlist{\setlength{\itemsep}{5pt}\setlength{\parskip}{0pt}}
 
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -43,6 +92,11 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+
 
 $if(csl-refs)$
 \newlength{\cslhangindent}
